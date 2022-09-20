@@ -145,7 +145,6 @@ public class GameManager : MonoBehaviour
             levelText.text = "After " + level + " days, you starved.";
         }
 
-        print("called GameOver()!");
         //Enable black background image gameObject.
         levelImage.SetActive(true);
 
