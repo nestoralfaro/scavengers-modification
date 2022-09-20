@@ -133,27 +133,6 @@ public class BoardManager : MonoBehaviour
     //SetupScene initializes our level and calls the previous functions to lay out the game board
     public void SetupScene (int level)
     {
-        //Creates the outer walls and floor.
-        // BoardSetup ();
-
-        // //Reset our list of gridpositions.
-        // InitialiseList ();
-
-        // //Instantiate a random number of wall tiles based on minimum and maximum, at randomized positions.
-        // LayoutObjectAtRandom (wallTiles, wallCount.minimum, wallCount.maximum);
-
-        // //Instantiate a random number of food tiles based on minimum and maximum, at randomized positions.
-        // LayoutObjectAtRandom (foodTiles, foodCount.minimum, foodCount.maximum);
-
-        // //Determine number of enemies based on current level number, based on a logarithmic progression
-        // int enemyCount = (int)Mathf.Log(level, 2f);
-
-        // //Instantiate a random number of enemies based on minimum and maximum, at randomized positions.
-        // LayoutObjectAtRandom (enemyTiles, enemyCount, enemyCount);
-
-        // //Instantiate the exit tile in the upper right hand corner of our game board
-        // Instantiate (exit, new Vector3 (columns - 1, rows - 1, 0f), Quaternion.identity);
-
         // Expected to be at Assets/Resources/day1.txt
         TextAsset levelAsset = Resources.Load("day" + level) as TextAsset;
 
@@ -173,61 +152,51 @@ public class BoardManager : MonoBehaviour
             for (int j = 0; j < lines[i].Length; ++j) {
                 if (lines[i][j] == 'X' || lines[i][j] == 'x') {
                     // Floor
-                    //Choose a random tile from tileArray and assign it to tileChoice
                     GameObject floor = floorTiles[Random.Range (0, floorTiles.Length)];
-                    //Instantiate tileChoice at the position returned by RandomPosition with no change in rotation
+                    //Instantiate floorChoice at the position j, i
                     Instantiate(floor, new Vector3(j - 1, (lines.Length - i) - 2, 0f), Quaternion.identity);
 
                     // Wall
-                    //Choose a random tile from tileArray and assign it to tileChoice
                     GameObject wall = wallTiles[Random.Range (0, wallTiles.Length)];
-                    //Instantiate tileChoice at the position returned by RandomPosition with no change in rotation
+                    //Instantiate wallChoice at the position j, i
                     Instantiate(wall, new Vector3(j - 1, (lines.Length - i) - 2, 0f), Quaternion.identity);
                 }
                 else if (lines[i][j] == 'F' || lines[i][j] == 'f') {
                     // Floor
-                    //Choose a random tile from tileArray and assign it to tileChoice
                     GameObject floor = floorTiles[Random.Range (0, floorTiles.Length)];
-                    //Instantiate tileChoice at the position returned by RandomPosition with no change in rotation
+                    //Instantiate floorChoice at the position j, i
                     Instantiate(floor, new Vector3(j - 1, (lines.Length - i) - 2, 0f), Quaternion.identity);
 
-                    // Wall
-                    //Choose a random tile from tileArray and assign it to tileChoice
+                    // Food
                     GameObject food = foodTiles[Random.Range (0, foodTiles.Length)];
-                    //Instantiate tileChoice at the position returned by RandomPosition with no change in rotation
+                    //Instantiate foodChoice at the position j, i
                     Instantiate(food, new Vector3(j - 1, (lines.Length - i) - 2, 0f), Quaternion.identity);
                 }
                 else if (lines[i][j] == 'E' || lines[i][j] == 'e') {
                     // Floor
-                    //Choose a random tile from tileArray and assign it to tileChoice
                     GameObject floor = floorTiles[Random.Range (0, floorTiles.Length)];
-                    //Instantiate tileChoice at the position returned by RandomPosition with no change in rotation
+                    //Instantiate floorChoice at the position j, i
                     Instantiate(floor, new Vector3(j - 1, (lines.Length - i) - 2, 0f), Quaternion.identity);
 
-                    // Wall
-                    //Choose a random tile from tileArray and assign it to tileChoice
+                    // Enemy
                     GameObject enemy = enemyTiles[Random.Range (0, enemyTiles.Length)];
-                    //Instantiate tileChoice at the position returned by RandomPosition with no change in rotation
+                    //Instantiate enemyChoice at the position j, i
                     Instantiate(enemy, new Vector3(j - 1, (lines.Length - i) - 2, 0f), Quaternion.identity);
                 }
                 else if (lines[i][j] == 'T' || lines[i][j] == 't'){
                     // Floor
-                    //Choose a random tile from tileArray and assign it to tileChoice
                     GameObject floor = floorTiles[Random.Range (0, floorTiles.Length)];
-                    //Instantiate tileChoice at the position returned by RandomPosition with no change in rotation
+                    //Instantiate floorChoice at the position j, i
                     Instantiate(floor, new Vector3(j - 1, (lines.Length - i) - 2, 0f), Quaternion.identity);
 
-                    // Wall
-                    //Choose a random tile from tileArray and assign it to tileChoice
-                    // GameObject exitPre = exit[Random.Range (0, exit.Length)];
-                    //Instantiate tileChoice at the position returned by RandomPosition with no change in rotation
+                    // Exit
+                    //Instantiate exit at the position j, i
                     Instantiate(exit, new Vector3(j - 1, (lines.Length - i) - 2, 0f), Quaternion.identity);
                 }
                 else {
                     // Floor
-                    //Choose a random tile from tileArray and assign it to tileChoice
                     GameObject floor = floorTiles[Random.Range (0, floorTiles.Length)];
-                    //Instantiate tileChoice at the position returned by RandomPosition with no change in rotation
+                    //Instantiate floorChoice at the position j, i
                     Instantiate(floor, new Vector3(j - 1, (lines.Length - i) - 2, 0f), Quaternion.identity);
                 }
             }
