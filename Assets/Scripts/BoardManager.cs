@@ -144,8 +144,6 @@ public class BoardManager : MonoBehaviour
         // if (levelAsset == null) {
         // }
 
-        print(levelAsset.text);
-
         string[] lines = levelAsset.text.Split('\n');
 
         for (int i = 0; i < lines.Length; ++i) {
